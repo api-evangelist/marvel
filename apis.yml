@@ -8,9 +8,9 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - Characters
   - Comics
   - Entertainment
-  - Characters
   - Media
 url: >-
   https://raw.githubusercontent.com/api-evangelist/marvel/refs/heads/main/apis.yml
@@ -27,8 +27,8 @@ apis:
     humanURL: https://developer.marvel.com/
     baseURL: https://gateway.marvel.com/v1/public
     tags:
-      - Comics
       - Characters
+      - Comics
       - Entertainment
     properties:
       - type: Documentation
