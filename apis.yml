@@ -42,7 +42,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developer.marvel.com/docs
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developer.marvel.com/documentation/getting_started
       - type: Reference
         url: https://developer.marvel.com/documentation/apiresults
@@ -54,9 +54,9 @@ apis:
 common:
   - type: Portal
     url: https://developer.marvel.com/
-  - type: Sign Up
+  - type: SignUp
     url: https://developer.marvel.com/account
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://developer.marvel.com/terms
   - type: Documentation
     url: https://developer.marvel.com/docs
