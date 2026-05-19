@@ -1,0 +1,104 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Marvel Comics API — Stories
+  description: 'Marvel Comics API — Stories. 2 operations. Lead operation: List stories. Self-contained Naftiko capability
+    covering one Marvel business surface.'
+  tags:
+  - Marvel
+  - Stories
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MARVEL_API_KEY: MARVEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: marvel-stories
+    baseUri: https://gateway.marvel.com/v1/public
+    description: Marvel Comics API — Stories business capability. Self-contained, no shared references.
+    resources:
+    - name: stories
+      path: /stories
+      operations:
+      - name: liststories
+        method: GET
+        description: List stories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: stories-storyId
+      path: /stories/{storyId}
+      operations:
+      - name: getstory
+        method: GET
+        description: Get story by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: apikey
+      value: '{{env.MARVEL_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: marvel-stories-rest
+    port: 8080
+    description: REST adapter for Marvel Comics API — Stories. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/stories
+      name: stories
+      description: REST surface for stories.
+      operations:
+      - method: GET
+        name: liststories
+        description: List stories
+        call: marvel-stories.liststories
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/stories/{storyid}
+      name: stories-storyid
+      description: REST surface for stories-storyId.
+      operations:
+      - method: GET
+        name: getstory
+        description: Get story by ID
+        call: marvel-stories.getstory
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: marvel-stories-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Marvel Comics API — Stories. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-stories
+      description: List stories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: marvel-stories.liststories
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-story-id
+      description: Get story by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: marvel-stories.getstory
+      outputParameters:
+      - type: object
+        mapping: $.

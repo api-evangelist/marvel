@@ -1,0 +1,104 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Marvel Comics API — Events
+  description: 'Marvel Comics API — Events. 2 operations. Lead operation: List events. Self-contained Naftiko capability covering
+    one Marvel business surface.'
+  tags:
+  - Marvel
+  - Events
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MARVEL_API_KEY: MARVEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: marvel-events
+    baseUri: https://gateway.marvel.com/v1/public
+    description: Marvel Comics API — Events business capability. Self-contained, no shared references.
+    resources:
+    - name: events
+      path: /events
+      operations:
+      - name: listevents
+        method: GET
+        description: List events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: events-eventId
+      path: /events/{eventId}
+      operations:
+      - name: getevent
+        method: GET
+        description: Get event by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: apikey
+      value: '{{env.MARVEL_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: marvel-events-rest
+    port: 8080
+    description: REST adapter for Marvel Comics API — Events. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/events
+      name: events
+      description: REST surface for events.
+      operations:
+      - method: GET
+        name: listevents
+        description: List events
+        call: marvel-events.listevents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/events/{eventid}
+      name: events-eventid
+      description: REST surface for events-eventId.
+      operations:
+      - method: GET
+        name: getevent
+        description: Get event by ID
+        call: marvel-events.getevent
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: marvel-events-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Marvel Comics API — Events. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-events
+      description: List events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: marvel-events.listevents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-event-id
+      description: Get event by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: marvel-events.getevent
+      outputParameters:
+      - type: object
+        mapping: $.

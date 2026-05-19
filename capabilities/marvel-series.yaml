@@ -1,0 +1,104 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Marvel Comics API — Series
+  description: 'Marvel Comics API — Series. 2 operations. Lead operation: List series. Self-contained Naftiko capability covering
+    one Marvel business surface.'
+  tags:
+  - Marvel
+  - Series
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MARVEL_API_KEY: MARVEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: marvel-series
+    baseUri: https://gateway.marvel.com/v1/public
+    description: Marvel Comics API — Series business capability. Self-contained, no shared references.
+    resources:
+    - name: series
+      path: /series
+      operations:
+      - name: listseries
+        method: GET
+        description: List series
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: series-seriesId
+      path: /series/{seriesId}
+      operations:
+      - name: getseries
+        method: GET
+        description: Get series by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: apikey
+      value: '{{env.MARVEL_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: marvel-series-rest
+    port: 8080
+    description: REST adapter for Marvel Comics API — Series. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/series
+      name: series
+      description: REST surface for series.
+      operations:
+      - method: GET
+        name: listseries
+        description: List series
+        call: marvel-series.listseries
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/series/{seriesid}
+      name: series-seriesid
+      description: REST surface for series-seriesId.
+      operations:
+      - method: GET
+        name: getseries
+        description: Get series by ID
+        call: marvel-series.getseries
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: marvel-series-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Marvel Comics API — Series. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-series
+      description: List series
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: marvel-series.listseries
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-series-id
+      description: Get series by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: marvel-series.getseries
+      outputParameters:
+      - type: object
+        mapping: $.

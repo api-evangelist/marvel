@@ -1,0 +1,136 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Marvel Comics API — Comics
+  description: 'Marvel Comics API — Comics. 3 operations. Lead operation: List comics for a character. Self-contained Naftiko
+    capability covering one Marvel business surface.'
+  tags:
+  - Marvel
+  - Comics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MARVEL_API_KEY: MARVEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: marvel-comics
+    baseUri: https://gateway.marvel.com/v1/public
+    description: Marvel Comics API — Comics business capability. Self-contained, no shared references.
+    resources:
+    - name: characters-characterId-comics
+      path: /characters/{characterId}/comics
+      operations:
+      - name: listcharactercomics
+        method: GET
+        description: List comics for a character
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: comics
+      path: /comics
+      operations:
+      - name: listcomics
+        method: GET
+        description: List comics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: comics-comicId
+      path: /comics/{comicId}
+      operations:
+      - name: getcomic
+        method: GET
+        description: Get comic by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: apikey
+      value: '{{env.MARVEL_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: marvel-comics-rest
+    port: 8080
+    description: REST adapter for Marvel Comics API — Comics. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/characters/{characterid}/comics
+      name: characters-characterid-comics
+      description: REST surface for characters-characterId-comics.
+      operations:
+      - method: GET
+        name: listcharactercomics
+        description: List comics for a character
+        call: marvel-comics.listcharactercomics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/comics
+      name: comics
+      description: REST surface for comics.
+      operations:
+      - method: GET
+        name: listcomics
+        description: List comics
+        call: marvel-comics.listcomics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/comics/{comicid}
+      name: comics-comicid
+      description: REST surface for comics-comicId.
+      operations:
+      - method: GET
+        name: getcomic
+        description: Get comic by ID
+        call: marvel-comics.getcomic
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: marvel-comics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Marvel Comics API — Comics. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-comics-character
+      description: List comics for a character
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: marvel-comics.listcharactercomics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-comics
+      description: List comics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: marvel-comics.listcomics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-comic-id
+      description: Get comic by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: marvel-comics.getcomic
+      outputParameters:
+      - type: object
+        mapping: $.
