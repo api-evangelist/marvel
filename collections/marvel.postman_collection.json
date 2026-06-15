@@ -1,0 +1,1562 @@
+{
+  "item": [
+    {
+      "id": "42ed3b91-952c-4374-9770-f6a475ff6633",
+      "name": "Characters",
+      "description": {
+        "content": "Marvel character resources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4648c5b5-7d41-441c-bb1b-983b6631827e",
+          "name": "List characters",
+          "request": {
+            "name": "List characters",
+            "description": {
+              "content": "Fetches lists of comic characters with optional filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "characters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nameStartsWith",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "modifiedSince",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e073cdeb-9cde-4631-8811-067f315f7e75",
+              "name": "Successful character data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nameStartsWith",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modifiedSince",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6034,\n  \"status\": \"string\",\n  \"copyright\": \"string\",\n  \"attributionText\": \"string\",\n  \"data\": {\n    \"offset\": 8843,\n    \"limit\": 8757,\n    \"total\": 2114,\n    \"count\": 6046\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a81b1543-1f8a-443a-9303-68f60ce1328c",
+          "name": "Get character by ID",
+          "request": {
+            "name": "Get character by ID",
+            "description": {
+              "content": "Fetches a single character by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "characters",
+                ":characterId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "characterId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d49824b4-7b61-4c50-b307-4b5b770233d7",
+              "name": "Successful character data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":characterId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "characterId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7733,\n  \"status\": \"string\",\n  \"copyright\": \"string\",\n  \"attributionText\": \"string\",\n  \"data\": {\n    \"offset\": 5362,\n    \"limit\": 6602,\n    \"total\": 6846,\n    \"count\": 1010\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9339aa1-e7e6-4ed3-a015-462f44a4ae07",
+          "name": "List comics for a character",
+          "request": {
+            "name": "List comics for a character",
+            "description": {},
+            "url": {
+              "path": [
+                "characters",
+                ":characterId",
+                "comics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "characterId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "999bb925-df0c-46eb-b50a-49f74539386f",
+              "name": "Successful comic data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":characterId",
+                    "comics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "characterId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2387,\n  \"status\": \"string\",\n  \"data\": {\n    \"offset\": 2009,\n    \"limit\": 5899,\n    \"total\": 5049,\n    \"count\": 9122\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "252a7e2e-26f8-412b-a619-16486e35b06e",
+      "name": "Comics",
+      "description": {
+        "content": "Marvel comic resources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "24c38967-2e9a-4014-9497-6cffdc0b33a4",
+          "name": "List comics for a character",
+          "request": {
+            "name": "List comics for a character",
+            "description": {},
+            "url": {
+              "path": [
+                "characters",
+                ":characterId",
+                "comics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "characterId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d85c942-4554-40be-8539-10b41b0ffd4b",
+              "name": "Successful comic data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":characterId",
+                    "comics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "characterId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2048,\n  \"status\": \"string\",\n  \"data\": {\n    \"offset\": 2444,\n    \"limit\": 897,\n    \"total\": 6350,\n    \"count\": 7944\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8ae0fb9-097a-4ebe-bd59-dd60b3519093",
+          "name": "List comics",
+          "request": {
+            "name": "List comics",
+            "description": {},
+            "url": {
+              "path": [
+                "comics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "titleStartsWith",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "modifiedSince",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd0097eb-c733-4729-b985-eec870e982dc",
+              "name": "Successful comic data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "titleStartsWith",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modifiedSince",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2387,\n  \"status\": \"string\",\n  \"data\": {\n    \"offset\": 2009,\n    \"limit\": 5899,\n    \"total\": 5049,\n    \"count\": 9122\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c61913d-128e-45cb-aa96-d7ab5f5fcc0e",
+          "name": "Get comic by ID",
+          "request": {
+            "name": "Get comic by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "comics",
+                ":comicId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "comicId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "015af6b6-e523-4f36-a4fd-3b7c28789957",
+              "name": "Successful comic data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comics",
+                    ":comicId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "comicId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2387,\n  \"status\": \"string\",\n  \"data\": {\n    \"offset\": 2009,\n    \"limit\": 5899,\n    \"total\": 5049,\n    \"count\": 9122\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0660b1f1-9125-4e52-8330-6178fa7d7db6",
+      "name": "Creators",
+      "description": {
+        "content": "Marvel creator resources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d63f23d3-91dc-455f-9f84-7f330f6209bc",
+          "name": "List creators",
+          "request": {
+            "name": "List creators",
+            "description": {},
+            "url": {
+              "path": [
+                "creators"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "firstName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "modifiedSince",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c51ba342-16ff-4ddc-a028-d94323b50076",
+              "name": "Successful creator data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "firstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modifiedSince",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2048,\n  \"status\": \"string\",\n  \"data\": {\n    \"offset\": 2444,\n    \"limit\": 897,\n    \"total\": 6350,\n    \"count\": 7944\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02088b89-ef26-4323-b737-aa5e5da1033d",
+          "name": "Get creator by ID",
+          "request": {
+            "name": "Get creator by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "creators",
+                ":creatorId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "creatorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2558743-8215-4864-988f-976b45cd815f",
+              "name": "Successful creator data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creators",
+                    ":creatorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "creatorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2387,\n  \"status\": \"string\",\n  \"data\": {\n    \"offset\": 2009,\n    \"limit\": 5899,\n    \"total\": 5049,\n    \"count\": 9122\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "190f58cb-bfff-450c-8ccf-cf2e8039f6d4",
+      "name": "Events",
+      "description": {
+        "content": "Marvel event (crossover storyline) resources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4f3ea75e-58bf-4338-ba30-868d5aa52539",
+          "name": "List events",
+          "request": {
+            "name": "List events",
+            "description": {},
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nameStartsWith",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "modifiedSince",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5535285b-2df6-4f19-ba0b-8a9a9eda4ad5",
+              "name": "Successful event data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nameStartsWith",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modifiedSince",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2048,\n  \"status\": \"string\",\n  \"data\": {\n    \"offset\": 2444,\n    \"limit\": 897,\n    \"total\": 6350,\n    \"count\": 7944\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60fe883e-a6e3-4281-b7dc-93832b45f11c",
+          "name": "Get event by ID",
+          "request": {
+            "name": "Get event by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "events",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d75be7d2-26b5-43dc-a203-86ce572f678b",
+              "name": "Successful event data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2387,\n  \"status\": \"string\",\n  \"data\": {\n    \"offset\": 2009,\n    \"limit\": 5899,\n    \"total\": 5049,\n    \"count\": 9122\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5e18da72-cfaf-4101-b4c3-e3d2e6348a82",
+      "name": "Series",
+      "description": {
+        "content": "Marvel series resources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d62c550a-f96b-4ef4-b8c4-4cef2a576061",
+          "name": "List series",
+          "request": {
+            "name": "List series",
+            "description": {},
+            "url": {
+              "path": [
+                "series"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "titleStartsWith",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "modifiedSince",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a2ad103f-066c-4734-b852-05679a96a44d",
+              "name": "Successful series data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "titleStartsWith",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modifiedSince",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2048,\n  \"status\": \"string\",\n  \"data\": {\n    \"offset\": 2444,\n    \"limit\": 897,\n    \"total\": 6350,\n    \"count\": 7944\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1c64bbb-af16-4efe-b29b-75bd77d85fec",
+          "name": "Get series by ID",
+          "request": {
+            "name": "Get series by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "series",
+                ":seriesId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "seriesId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "914d3268-71a0-4b54-8395-ff630aab65ce",
+              "name": "Successful series data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":seriesId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "seriesId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2387,\n  \"status\": \"string\",\n  \"data\": {\n    \"offset\": 2009,\n    \"limit\": 5899,\n    \"total\": 5049,\n    \"count\": 9122\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "60e0fa0c-5791-4e36-b779-acc3227b9b03",
+      "name": "Stories",
+      "description": {
+        "content": "Marvel story resources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "670acbaf-8806-491e-9034-617224e18a33",
+          "name": "List stories",
+          "request": {
+            "name": "List stories",
+            "description": {},
+            "url": {
+              "path": [
+                "stories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "modifiedSince",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a4b1deb-40ff-40e8-bad0-c21668958d8b",
+              "name": "Successful story data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "modifiedSince",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2048,\n  \"status\": \"string\",\n  \"data\": {\n    \"offset\": 2444,\n    \"limit\": 897,\n    \"total\": 6350,\n    \"count\": 7944\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4dc77e45-e9d5-4d39-9f82-998d6cbfadce",
+          "name": "Get story by ID",
+          "request": {
+            "name": "Get story by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "stories",
+                ":storyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "storyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a73f4b7d-992d-4718-ac17-5bd51d17b220",
+              "name": "Successful story data wrapper.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stories",
+                    ":storyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "storyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2387,\n  \"status\": \"string\",\n  \"data\": {\n    \"offset\": 2009,\n    \"limit\": 5899,\n    \"total\": 5049,\n    \"count\": 9122\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.marvel.com/v1/public",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "25ae9115-b3d8-4caf-95c1-ddfbfdb49564",
+    "name": "Marvel Comics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Marvel Comics API allows developers to access information about Marvel's extensive catalog of characters, comics, creators, events, series, and stories. All requests must be authenticated using a public key, timestamp, and MD5 hash of the timestamp + private key + public key, supplied as query parameters.\n\nContact Support:\n Name: Marvel Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

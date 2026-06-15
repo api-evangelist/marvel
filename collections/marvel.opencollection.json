@@ -1,0 +1,420 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Marvel Comics API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Characters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List characters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/characters",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nameStartsWith",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "modifiedSince",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetches lists of comic characters with optional filters."
+        },
+        {
+          "info": {
+            "name": "Get character by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/characters/:characterId",
+            "params": [
+              {
+                "name": "characterId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetches a single character by ID."
+        },
+        {
+          "info": {
+            "name": "List comics for a character",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/characters/:characterId/comics",
+            "params": [
+              {
+                "name": "characterId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List comics for a character"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Comics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List comics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/comics",
+            "params": [
+              {
+                "name": "title",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "titleStartsWith",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "modifiedSince",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List comics"
+        },
+        {
+          "info": {
+            "name": "Get comic by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/comics/:comicId",
+            "params": [
+              {
+                "name": "comicId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get comic by ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Creators",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List creators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/creators",
+            "params": [
+              {
+                "name": "firstName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lastName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "modifiedSince",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List creators"
+        },
+        {
+          "info": {
+            "name": "Get creator by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/creators/:creatorId",
+            "params": [
+              {
+                "name": "creatorId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get creator by ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/events",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nameStartsWith",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "modifiedSince",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List events"
+        },
+        {
+          "info": {
+            "name": "Get event by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/events/:eventId",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get event by ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Series",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List series",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/series",
+            "params": [
+              {
+                "name": "title",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "titleStartsWith",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "modifiedSince",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List series"
+        },
+        {
+          "info": {
+            "name": "Get series by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/series/:seriesId",
+            "params": [
+              {
+                "name": "seriesId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get series by ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Stories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List stories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/stories",
+            "params": [
+              {
+                "name": "modifiedSince",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List stories"
+        },
+        {
+          "info": {
+            "name": "Get story by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/stories/:storyId",
+            "params": [
+              {
+                "name": "storyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get story by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
