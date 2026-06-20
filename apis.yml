@@ -5,7 +5,7 @@ description: >-
   characters, series, events, creators, and stories. The API requires authentication via an API key and is available
   through the Marvel Developer Portal.
 type: Index
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Characters
   - Comics
