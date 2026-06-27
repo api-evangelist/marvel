@@ -52,7 +52,7 @@ common:
     url: https://www.linkedin.com/company/marvel-entertainment
   - type: Portal
     url: https://developer.marvel.com/
-  - type: SignUp
+  - type: Signup
     url: https://developer.marvel.com/account
   - type: TermsOfService
     url: https://developer.marvel.com/terms
