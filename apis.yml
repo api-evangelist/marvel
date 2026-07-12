@@ -48,6 +48,10 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/marvel/refs/heads/main/openapi/marvel-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/marvel-domain-security.yml
+  - type: Authentication
+    url: authentication/marvel-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/marvel-entertainment
   - type: Portal

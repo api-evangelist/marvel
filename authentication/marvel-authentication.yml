@@ -1,0 +1,30 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/marvel-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: query
+  parameter: apikey
+  description: Public API key issued from the Marvel Developer Portal.
+  sources:
+  - openapi/marvel-openapi.yml
+- name: timestampAuth
+  type: apiKey
+  in: query
+  parameter: ts
+  description: Timestamp (or other long string) used in the hash computation.
+  sources:
+  - openapi/marvel-openapi.yml
+- name: hashAuth
+  type: apiKey
+  in: query
+  parameter: hash
+  description: MD5 hash of ts + private key + public key.
+  sources:
+  - openapi/marvel-openapi.yml

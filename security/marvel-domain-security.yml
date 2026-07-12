@@ -1,0 +1,26 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: developer.marvel.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Jan  5 23:59:59 2027 GMT
+  hsts: null
+- host: www.marvel.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  4 23:59:59 2026 GMT
+  hsts: null
+- host: gateway.marvel.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Jan  5 23:59:59 2027 GMT
+  hsts: null
+domains:
+- domain: marvel.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
