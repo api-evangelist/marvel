@@ -48,6 +48,8 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/marvel/refs/heads/main/openapi/marvel-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/marvel-agentic-access.yml
   - type: DomainSecurity
     url: security/marvel-domain-security.yml
   - type: Authentication
