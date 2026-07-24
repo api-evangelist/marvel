@@ -1,0 +1,161 @@
+openapi: 3.0.3
+info:
+  title: Marvel Characters Comics API
+  summary: Public REST API providing access to Marvel's library of comics, characters, creators, events, series, and stories spanning over 70 years of Marvel history.
+  description: The Marvel Comics API allows developers to access information about Marvel's extensive catalog of characters, comics, creators, events, series, and stories. All requests must be authenticated using a public key, timestamp, and MD5 hash of the timestamp + private key + public key, supplied as query parameters.
+  version: '1.0'
+  contact:
+    name: Marvel Developer Portal
+    url: https://developer.marvel.com/
+  license:
+    name: Marvel API Terms of Use
+    url: https://developer.marvel.com/terms
+servers:
+- url: https://gateway.marvel.com/v1/public
+  description: Marvel Comics public API gateway
+security:
+- apiKeyAuth: []
+  timestampAuth: []
+  hashAuth: []
+tags:
+- name: Comics
+  description: Marvel comic resources.
+paths:
+  /characters/{characterId}/comics:
+    get:
+      tags:
+      - Comics
+      summary: List comics for a character
+      operationId: listCharacterComics
+      parameters:
+      - $ref: '#/components/parameters/characterId'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successful comic data wrapper.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComicDataWrapper'
+  /comics:
+    get:
+      tags:
+      - Comics
+      summary: List comics
+      operationId: listComics
+      parameters:
+      - $ref: '#/components/parameters/title'
+      - $ref: '#/components/parameters/titleStartsWith'
+      - $ref: '#/components/parameters/modifiedSince'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successful comic data wrapper.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComicDataWrapper'
+  /comics/{comicId}:
+    get:
+      tags:
+      - Comics
+      summary: Get comic by ID
+      operationId: getComic
+      parameters:
+      - $ref: '#/components/parameters/comicId'
+      responses:
+        '200':
+          description: Successful comic data wrapper.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComicDataWrapper'
+components:
+  parameters:
+    limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 20
+        maximum: 100
+    comicId:
+      name: comicId
+      in: path
+      required: true
+      schema:
+        type: integer
+    modifiedSince:
+      name: modifiedSince
+      in: query
+      schema:
+        type: string
+        format: date-time
+    characterId:
+      name: characterId
+      in: path
+      required: true
+      schema:
+        type: integer
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+    title:
+      name: title
+      in: query
+      schema:
+        type: string
+    titleStartsWith:
+      name: titleStartsWith
+      in: query
+      schema:
+        type: string
+  schemas:
+    DataContainer:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+        count:
+          type: integer
+    ComicDataWrapper:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        data:
+          allOf:
+          - $ref: '#/components/schemas/DataContainer'
+          - type: object
+            properties:
+              results:
+                type: array
+                items:
+                  type: object
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: apikey
+      description: Public API key issued from the Marvel Developer Portal.
+    timestampAuth:
+      type: apiKey
+      in: query
+      name: ts
+      description: Timestamp (or other long string) used in the hash computation.
+    hashAuth:
+      type: apiKey
+      in: query
+      name: hash
+      description: MD5 hash of ts + private key + public key.

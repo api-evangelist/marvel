@@ -1,0 +1,138 @@
+openapi: 3.0.3
+info:
+  title: Marvel Comics Characters Creators API
+  summary: Public REST API providing access to Marvel's library of comics, characters, creators, events, series, and stories spanning over 70 years of Marvel history.
+  description: The Marvel Comics API allows developers to access information about Marvel's extensive catalog of characters, comics, creators, events, series, and stories. All requests must be authenticated using a public key, timestamp, and MD5 hash of the timestamp + private key + public key, supplied as query parameters.
+  version: '1.0'
+  contact:
+    name: Marvel Developer Portal
+    url: https://developer.marvel.com/
+  license:
+    name: Marvel API Terms of Use
+    url: https://developer.marvel.com/terms
+servers:
+- url: https://gateway.marvel.com/v1/public
+  description: Marvel Comics public API gateway
+security:
+- apiKeyAuth: []
+  timestampAuth: []
+  hashAuth: []
+tags:
+- name: Creators
+  description: Marvel creator resources.
+paths:
+  /creators:
+    get:
+      tags:
+      - Creators
+      summary: List creators
+      operationId: listCreators
+      parameters:
+      - $ref: '#/components/parameters/firstName'
+      - $ref: '#/components/parameters/lastName'
+      - $ref: '#/components/parameters/modifiedSince'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Successful creator data wrapper.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatorDataWrapper'
+  /creators/{creatorId}:
+    get:
+      tags:
+      - Creators
+      summary: Get creator by ID
+      operationId: getCreator
+      parameters:
+      - $ref: '#/components/parameters/creatorId'
+      responses:
+        '200':
+          description: Successful creator data wrapper.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatorDataWrapper'
+components:
+  schemas:
+    CreatorDataWrapper:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        data:
+          allOf:
+          - $ref: '#/components/schemas/DataContainer'
+          - type: object
+            properties:
+              results:
+                type: array
+                items:
+                  type: object
+    DataContainer:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+        count:
+          type: integer
+  parameters:
+    firstName:
+      name: firstName
+      in: query
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 20
+        maximum: 100
+    modifiedSince:
+      name: modifiedSince
+      in: query
+      schema:
+        type: string
+        format: date-time
+    lastName:
+      name: lastName
+      in: query
+      schema:
+        type: string
+    creatorId:
+      name: creatorId
+      in: path
+      required: true
+      schema:
+        type: integer
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: apikey
+      description: Public API key issued from the Marvel Developer Portal.
+    timestampAuth:
+      type: apiKey
+      in: query
+      name: ts
+      description: Timestamp (or other long string) used in the hash computation.
+    hashAuth:
+      type: apiKey
+      in: query
+      name: hash
+      description: MD5 hash of ts + private key + public key.
