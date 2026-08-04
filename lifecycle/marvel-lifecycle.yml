@@ -1,0 +1,48 @@
+generated: '2026-08-03'
+method: probed
+status: published
+description: Marvel retired its developer portal. Every developer.marvel.com path
+  now 302s to the marvel.com homepage, so there is no documentation, no account page
+  and no way to obtain an API key. The gateway host still resolves but errors. Treat
+  this API as RETIRED for new consumers — existing keys may or may not still work,
+  but none can be issued.
+verified: '2026-08-03'
+lifecycle:
+  stage: retired
+  new_signups: false
+  key_issuance: false
+  reported_by: https://github.com/api-evangelist/marvel/issues/1
+  reported_at: '2026-08-03'
+deprecation:
+  announced: null
+  note: No deprecation notice was published at a URL we can cite; the portal simply
+    redirects.
+evidence:
+- url: https://developer.marvel.com
+  status: 200
+  redirects_to: https://www.marvel.com/
+  note: SOFT 404 — a 200 after redirect, which is why link checking never flagged
+    it.
+- url: https://developer.marvel.com/documentation/getting_started
+  status: 200
+  redirects_to: https://www.marvel.com/
+- url: https://developer.marvel.com/account
+  status: 200
+  redirects_to: https://www.marvel.com/
+  note: No signup or key management remains.
+- url: https://gateway.marvel.com/v1/public/characters
+  status: 500
+  note: Gateway resolves but errors; not a usable surface.
+alternatives:
+- name: Comic Vine
+  url: https://comicvine.gamespot.com/api/
+  status: 200
+  note: GameSpot-run comics database with a documented API and free keys.
+- name: Superhero API
+  url: https://superheroapi.com/
+  status: 200
+  note: Character data across publishers, free token.
+- name: Metron
+  url: https://metron.cloud/
+  status: 200
+  note: Open comics database; API returns 401 unauthenticated, so accounts exist.

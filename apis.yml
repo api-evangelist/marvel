@@ -1,9 +1,8 @@
 aid: marvel
 name: Marvel
-description: >-
-  The Marvel Comics API is a tool for developers to access data from over 70 years of Marvel comics, including
-  characters, series, events, creators, and stories. The API requires authentication via an API key and is available
-  through the Marvel Developer Portal.
+description: The Marvel Comics API is a tool for developers to access data from over 70 years of Marvel
+  comics, including characters, series, events, creators, and stories. The API requires authentication
+  via an API key and is available through the Marvel Developer Portal.
 type: Index
 accessModel:
   pricing: freemium
@@ -20,17 +19,17 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/marvel.png
 tags:
-  - Characters
-  - Comics
-  - Creators
-  - Entertainment
-  - Events
-  - Media
-  - Series
-  - Stories
+- Characters
+- Comics
+- Creators
+- Entertainment
+- Events
+- Media
+- Series
+- Stories
 url: https://raw.githubusercontent.com/api-evangelist/marvel/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-05-19'
+modified: '2026-08-03'
 specificationVersion: '0.19'
 apis:
 - aid: marvel:marvel-characters-api
@@ -142,24 +141,28 @@ apis:
   - type: Authentication
     url: https://developer.marvel.com/documentation/authorization
 common:
-  - type: AgenticAccess
-    url: agentic-access/marvel-agentic-access.yml
-  - type: DomainSecurity
-    url: security/marvel-domain-security.yml
-  - type: Authentication
-    url: authentication/marvel-authentication.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/marvel-entertainment
-  - type: Portal
-    url: https://developer.marvel.com/
-  - type: Signup
-    url: https://developer.marvel.com/account
-  - type: TermsOfService
-    url: https://developer.marvel.com/terms
-  - type: Documentation
-    url: https://developer.marvel.com/docs
-  - type: Website
-    url: https://www.marvel.com/
+- type: AgenticAccess
+  url: agentic-access/marvel-agentic-access.yml
+- type: DomainSecurity
+  url: security/marvel-domain-security.yml
+- type: Authentication
+  url: authentication/marvel-authentication.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/marvel-entertainment
+- type: Portal
+  url: https://developer.marvel.com/
+- type: Signup
+  url: https://developer.marvel.com/account
+- type: TermsOfService
+  url: https://developer.marvel.com/terms
+- type: Documentation
+  url: https://developer.marvel.com/docs
+- type: Website
+  url: https://www.marvel.com/
+- url: lifecycle/marvel-lifecycle.yml
+  type: Lifecycle
+- url: lifecycle/marvel-lifecycle.yml
+  type: Deprecation
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,24 @@
+{
+  "provider": "marvel",
+  "sources": [
+    "marvel-characters-api-openapi.yml",
+    "marvel-comics-api-openapi.yml",
+    "marvel-creators-api-openapi.yml",
+    "marvel-events-api-openapi.yml",
+    "marvel-series-api-openapi.yml",
+    "marvel-stories-api-openapi.yml"
+  ],
+  "outputs": [
+    "marvel-characters-api-openapi.yml",
+    "marvel-comics-api-openapi.yml",
+    "marvel-creators-api-openapi.yml",
+    "marvel-events-api-openapi.yml",
+    "marvel-series-api-openapi.yml",
+    "marvel-stories-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
