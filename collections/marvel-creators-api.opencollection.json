@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Marvel Comics Characters Creators API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Creators",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List creators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/creators",
+            "params": [
+              {
+                "name": "firstName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lastName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "modifiedSince",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List creators"
+        },
+        {
+          "info": {
+            "name": "Get creator by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/creators/:creatorId",
+            "params": [
+              {
+                "name": "creatorId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get creator by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Marvel Comics Characters Series API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Series",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List series",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/series",
+            "params": [
+              {
+                "name": "title",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "titleStartsWith",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "modifiedSince",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List series"
+        },
+        {
+          "info": {
+            "name": "Get series by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/series/:seriesId",
+            "params": [
+              {
+                "name": "seriesId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get series by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

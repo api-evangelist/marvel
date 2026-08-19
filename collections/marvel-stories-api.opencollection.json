@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Marvel Comics Characters Stories API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List stories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/stories",
+            "params": [
+              {
+                "name": "modifiedSince",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List stories"
+        },
+        {
+          "info": {
+            "name": "Get story by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.marvel.com/v1/public/stories/:storyId",
+            "params": [
+              {
+                "name": "storyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get story by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
