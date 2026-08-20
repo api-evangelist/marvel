@@ -23,6 +23,15 @@ tags:
 - Comics
 - Creators
 - Entertainment
+- Event
+- Media
+- Series
+- Stories
+tags_raw:
+- Characters
+- Comics
+- Creators
+- Entertainment
 - Events
 - Media
 - Series
@@ -92,6 +101,8 @@ apis:
   humanURL: https://developer.marvel.com/
   baseURL: https://gateway.marvel.com/v1/public
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
