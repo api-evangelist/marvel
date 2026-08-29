@@ -4,6 +4,18 @@ description: The Marvel Comics API is a tool for developers to access data from 
   comics, including characters, series, events, creators, and stories. The API requires authentication
   via an API key and is available through the Marvel Developer Portal.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
