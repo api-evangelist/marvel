@@ -1,12 +1,7 @@
 {
   "provider": "marvel",
   "sources": [
-    "marvel-characters-api-openapi.yml",
-    "marvel-comics-api-openapi.yml",
-    "marvel-creators-api-openapi.yml",
-    "marvel-events-api-openapi.yml",
-    "marvel-series-api-openapi.yml",
-    "marvel-stories-api-openapi.yml"
+    "_original/marvel-openapi.yml"
   ],
   "outputs": [
     "marvel-characters-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "marvel-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "marvel-characters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "marvel-comics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "marvel-creators-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "marvel-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "marvel-series-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "marvel-stories-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

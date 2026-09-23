@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Marvel Characters Comics API
+  title: Marvel Comics API
   summary: Public REST API providing access to Marvel's library of comics, characters, creators, events, series, and stories spanning over 70 years of Marvel history.
   description: The Marvel Comics API allows developers to access information about Marvel's extensive catalog of characters, comics, creators, events, series, and stories. All requests must be authenticated using a public key, timestamp, and MD5 hash of the timestamp + private key + public key, supplied as query parameters.
   version: '1.0'
@@ -81,6 +81,23 @@ components:
         type: integer
         default: 20
         maximum: 100
+    characterId:
+      name: characterId
+      in: path
+      required: true
+      schema:
+        type: integer
+    title:
+      name: title
+      in: query
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
     comicId:
       name: comicId
       in: path
@@ -93,23 +110,6 @@ components:
       schema:
         type: string
         format: date-time
-    characterId:
-      name: characterId
-      in: path
-      required: true
-      schema:
-        type: integer
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        default: 0
-    title:
-      name: title
-      in: query
-      schema:
-        type: string
     titleStartsWith:
       name: titleStartsWith
       in: query

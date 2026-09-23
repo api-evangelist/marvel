@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Marvel Comics Characters Series API
+  title: Marvel Comics Series API
   summary: Public REST API providing access to Marvel's library of comics, characters, creators, events, series, and stories spanning over 70 years of Marvel history.
   description: The Marvel Comics API allows developers to access information about Marvel's extensive catalog of characters, comics, creators, events, series, and stories. All requests must be authenticated using a public key, timestamp, and MD5 hash of the timestamp + private key + public key, supplied as query parameters.
   version: '1.0'
@@ -57,6 +57,12 @@ paths:
                 $ref: '#/components/schemas/SeriesDataWrapper'
 components:
   parameters:
+    seriesId:
+      name: seriesId
+      in: path
+      required: true
+      schema:
+        type: integer
     limit:
       name: limit
       in: query
@@ -64,46 +70,29 @@ components:
         type: integer
         default: 20
         maximum: 100
-    seriesId:
-      name: seriesId
-      in: path
-      required: true
-      schema:
-        type: integer
-    modifiedSince:
-      name: modifiedSince
+    title:
+      name: title
       in: query
       schema:
         type: string
-        format: date-time
     offset:
       name: offset
       in: query
       schema:
         type: integer
         default: 0
-    title:
-      name: title
+    modifiedSince:
+      name: modifiedSince
       in: query
       schema:
         type: string
+        format: date-time
     titleStartsWith:
       name: titleStartsWith
       in: query
       schema:
         type: string
   schemas:
-    DataContainer:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        total:
-          type: integer
-        count:
-          type: integer
     SeriesDataWrapper:
       type: object
       properties:
@@ -120,6 +109,17 @@ components:
                 type: array
                 items:
                   type: object
+    DataContainer:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+        count:
+          type: integer
   securitySchemes:
     apiKeyAuth:
       type: apiKey
