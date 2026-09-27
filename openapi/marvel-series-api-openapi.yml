@@ -57,12 +57,6 @@ paths:
                 $ref: '#/components/schemas/SeriesDataWrapper'
 components:
   parameters:
-    seriesId:
-      name: seriesId
-      in: path
-      required: true
-      schema:
-        type: integer
     limit:
       name: limit
       in: query
@@ -70,28 +64,34 @@ components:
         type: integer
         default: 20
         maximum: 100
+    titleStartsWith:
+      name: titleStartsWith
+      in: query
+      schema:
+        type: string
     title:
       name: title
       in: query
       schema:
         type: string
-    offset:
-      name: offset
-      in: query
+    seriesId:
+      name: seriesId
+      in: path
+      required: true
       schema:
         type: integer
-        default: 0
     modifiedSince:
       name: modifiedSince
       in: query
       schema:
         type: string
         format: date-time
-    titleStartsWith:
-      name: titleStartsWith
+    offset:
+      name: offset
       in: query
       schema:
-        type: string
+        type: integer
+        default: 0
   schemas:
     SeriesDataWrapper:
       type: object

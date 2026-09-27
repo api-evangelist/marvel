@@ -74,36 +74,25 @@ components:
       in: query
       schema:
         type: string
-    creatorId:
-      name: creatorId
-      in: path
-      required: true
-      schema:
-        type: integer
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        default: 0
     modifiedSince:
       name: modifiedSince
       in: query
       schema:
         type: string
         format: date-time
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+    creatorId:
+      name: creatorId
+      in: path
+      required: true
+      schema:
+        type: integer
   schemas:
-    DataContainer:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        total:
-          type: integer
-        count:
-          type: integer
     CreatorDataWrapper:
       type: object
       properties:
@@ -120,6 +109,17 @@ components:
                 type: array
                 items:
                   type: object
+    DataContainer:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+        count:
+          type: integer
   securitySchemes:
     apiKeyAuth:
       type: apiKey

@@ -75,42 +75,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ComicDataWrapper'
 components:
-  parameters:
-    limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 20
-        maximum: 100
-    nameStartsWith:
-      name: nameStartsWith
-      in: query
-      schema:
-        type: string
-    characterId:
-      name: characterId
-      in: path
-      required: true
-      schema:
-        type: integer
-    name:
-      name: name
-      in: query
-      schema:
-        type: string
-    modifiedSince:
-      name: modifiedSince
-      in: query
-      schema:
-        type: string
-        format: date-time
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        default: 0
   schemas:
     ComicDataWrapper:
       type: object
@@ -118,6 +82,26 @@ components:
         code:
           type: integer
         status:
+          type: string
+        data:
+          allOf:
+          - $ref: '#/components/schemas/DataContainer'
+          - type: object
+            properties:
+              results:
+                type: array
+                items:
+                  type: object
+    CharacterDataWrapper:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        copyright:
+          type: string
+        attributionText:
           type: string
         data:
           allOf:
@@ -139,26 +123,42 @@ components:
           type: integer
         count:
           type: integer
-    CharacterDataWrapper:
-      type: object
-      properties:
-        code:
-          type: integer
-        status:
-          type: string
-        copyright:
-          type: string
-        attributionText:
-          type: string
-        data:
-          allOf:
-          - $ref: '#/components/schemas/DataContainer'
-          - type: object
-            properties:
-              results:
-                type: array
-                items:
-                  type: object
+  parameters:
+    characterId:
+      name: characterId
+      in: path
+      required: true
+      schema:
+        type: integer
+    limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 20
+        maximum: 100
+    nameStartsWith:
+      name: nameStartsWith
+      in: query
+      schema:
+        type: string
+    modifiedSince:
+      name: modifiedSince
+      in: query
+      schema:
+        type: string
+        format: date-time
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+    name:
+      name: name
+      in: query
+      schema:
+        type: string
   securitySchemes:
     apiKeyAuth:
       type: apiKey

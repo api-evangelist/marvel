@@ -75,11 +75,6 @@ components:
       required: true
       schema:
         type: integer
-    name:
-      name: name
-      in: query
-      schema:
-        type: string
     modifiedSince:
       name: modifiedSince
       in: query
@@ -92,18 +87,12 @@ components:
       schema:
         type: integer
         default: 0
+    name:
+      name: name
+      in: query
+      schema:
+        type: string
   schemas:
-    DataContainer:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        total:
-          type: integer
-        count:
-          type: integer
     EventDataWrapper:
       type: object
       properties:
@@ -120,6 +109,17 @@ components:
                 type: array
                 items:
                   type: object
+    DataContainer:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+        count:
+          type: integer
   securitySchemes:
     apiKeyAuth:
       type: apiKey
