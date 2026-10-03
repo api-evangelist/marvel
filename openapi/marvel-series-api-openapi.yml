@@ -74,12 +74,6 @@ components:
       in: query
       schema:
         type: string
-    seriesId:
-      name: seriesId
-      in: path
-      required: true
-      schema:
-        type: integer
     modifiedSince:
       name: modifiedSince
       in: query
@@ -92,7 +86,24 @@ components:
       schema:
         type: integer
         default: 0
+    seriesId:
+      name: seriesId
+      in: path
+      required: true
+      schema:
+        type: integer
   schemas:
+    DataContainer:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+        count:
+          type: integer
     SeriesDataWrapper:
       type: object
       properties:
@@ -109,17 +120,6 @@ components:
                 type: array
                 items:
                   type: object
-    DataContainer:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        total:
-          type: integer
-        count:
-          type: integer
   securitySchemes:
     apiKeyAuth:
       type: apiKey
