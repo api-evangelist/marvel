@@ -1,21 +1,19 @@
-# Kin Score artifact — marvel — 2026-08-27T132314
+# Kin Score artifact — marvel — 2026-09-24T090406
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: marvel
-  schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T132314
-  composite: 39.1
+  schema_version: 0.22.0
+  scored_at: '2026-09-24'
+  run_ts: 2026-09-24T090406
+  composite: 38.5
   band: thin
   facets:
-    discoverability: 74.1
+    discoverability: 68.5
     contract_quality: 46.9
-    governance: 0.0
+    contract_governance: 0.0
     operational_transparency: 15.8
     developer_ergonomics: 50.0
-    commercial_clarity: 39.5
-    contract_governance: 0.0
     access_clarity: 39.5
   agent_readiness:
     score: 22.9

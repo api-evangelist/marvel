@@ -34,7 +34,6 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/marvel.png
 tags:
 - Characters
 - Comics
-- Creators
 - Entertainment
 - Event
 - Media
@@ -43,7 +42,6 @@ tags:
 tags_raw:
 - Characters
 - Comics
-- Creators
 - Entertainment
 - Events
 - Media
@@ -190,3 +188,5 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-tags-removed:
+- Creators
