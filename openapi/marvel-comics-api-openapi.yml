@@ -73,7 +73,58 @@ paths:
               schema:
                 $ref: '#/components/schemas/ComicDataWrapper'
 components:
+  schemas:
+    ComicDataWrapper:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        data:
+          allOf:
+          - $ref: '#/components/schemas/DataContainer'
+          - type: object
+            properties:
+              results:
+                type: array
+                items:
+                  type: object
+    DataContainer:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+        count:
+          type: integer
   parameters:
+    comicId:
+      name: comicId
+      in: path
+      required: true
+      schema:
+        type: integer
+    characterId:
+      name: characterId
+      in: path
+      required: true
+      schema:
+        type: integer
+    title:
+      name: title
+      in: query
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
     titleStartsWith:
       name: titleStartsWith
       in: query
@@ -92,57 +143,6 @@ components:
       schema:
         type: string
         format: date-time
-    title:
-      name: title
-      in: query
-      schema:
-        type: string
-    characterId:
-      name: characterId
-      in: path
-      required: true
-      schema:
-        type: integer
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        default: 0
-    comicId:
-      name: comicId
-      in: path
-      required: true
-      schema:
-        type: integer
-  schemas:
-    DataContainer:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        total:
-          type: integer
-        count:
-          type: integer
-    ComicDataWrapper:
-      type: object
-      properties:
-        code:
-          type: integer
-        status:
-          type: string
-        data:
-          allOf:
-          - $ref: '#/components/schemas/DataContainer'
-          - type: object
-            properties:
-              results:
-                type: array
-                items:
-                  type: object
   securitySchemes:
     apiKeyAuth:
       type: apiKey

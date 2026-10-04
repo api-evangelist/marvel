@@ -56,42 +56,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/EventDataWrapper'
 components:
-  parameters:
-    limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 20
-        maximum: 100
-    eventId:
-      name: eventId
-      in: path
-      required: true
-      schema:
-        type: integer
-    modifiedSince:
-      name: modifiedSince
-      in: query
-      schema:
-        type: string
-        format: date-time
-    nameStartsWith:
-      name: nameStartsWith
-      in: query
-      schema:
-        type: string
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        default: 0
-    name:
-      name: name
-      in: query
-      schema:
-        type: string
   schemas:
     DataContainer:
       type: object
@@ -120,6 +84,42 @@ components:
                 type: array
                 items:
                   type: object
+  parameters:
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+    eventId:
+      name: eventId
+      in: path
+      required: true
+      schema:
+        type: integer
+    name:
+      name: name
+      in: query
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 20
+        maximum: 100
+    modifiedSince:
+      name: modifiedSince
+      in: query
+      schema:
+        type: string
+        format: date-time
+    nameStartsWith:
+      name: nameStartsWith
+      in: query
+      schema:
+        type: string
   securitySchemes:
     apiKeyAuth:
       type: apiKey

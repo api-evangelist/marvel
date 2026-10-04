@@ -57,19 +57,6 @@ paths:
                 $ref: '#/components/schemas/CreatorDataWrapper'
 components:
   parameters:
-    limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 20
-        maximum: 100
-    modifiedSince:
-      name: modifiedSince
-      in: query
-      schema:
-        type: string
-        format: date-time
     creatorId:
       name: creatorId
       in: path
@@ -92,6 +79,19 @@ components:
       in: query
       schema:
         type: string
+    limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 20
+        maximum: 100
+    modifiedSince:
+      name: modifiedSince
+      in: query
+      schema:
+        type: string
+        format: date-time
   schemas:
     DataContainer:
       type: object
