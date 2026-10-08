@@ -163,6 +163,12 @@ apis:
   - type: Authentication
     url: https://developer.marvel.com/documentation/authorization
 common:
+- type: Plans
+  url: plans/marvel-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/marvel-rate-limits.yml
+- type: FinOps
+  url: finops/marvel-finops.yml
 - url: https://www.marvel.com/articles
   type: Blog
 - type: AgenticAccess
