@@ -1,0 +1,11 @@
+[
+  {
+    "repo": "marvel",
+    "captured_at": "2026-10-11T191114",
+    "source_url": "https://developer.marvel.com/",
+    "source_type": "Portal",
+    "file": "marvel-2026-10-11T191114.png",
+    "bytes": 513015,
+    "capture": "playwright-local"
+  }
+]
