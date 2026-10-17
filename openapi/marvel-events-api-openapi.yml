@@ -85,18 +85,18 @@ components:
                 items:
                   type: object
   parameters:
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        default: 0
     eventId:
       name: eventId
       in: path
       required: true
       schema:
         type: integer
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
     name:
       name: name
       in: query

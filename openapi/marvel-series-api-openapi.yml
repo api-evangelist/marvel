@@ -56,6 +56,42 @@ paths:
               schema:
                 $ref: '#/components/schemas/SeriesDataWrapper'
 components:
+  parameters:
+    seriesId:
+      name: seriesId
+      in: path
+      required: true
+      schema:
+        type: integer
+    titleStartsWith:
+      name: titleStartsWith
+      in: query
+      schema:
+        type: string
+    title:
+      name: title
+      in: query
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+    limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 20
+        maximum: 100
+    modifiedSince:
+      name: modifiedSince
+      in: query
+      schema:
+        type: string
+        format: date-time
   schemas:
     DataContainer:
       type: object
@@ -84,42 +120,6 @@ components:
                 type: array
                 items:
                   type: object
-  parameters:
-    title:
-      name: title
-      in: query
-      schema:
-        type: string
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        default: 0
-    seriesId:
-      name: seriesId
-      in: path
-      required: true
-      schema:
-        type: integer
-    titleStartsWith:
-      name: titleStartsWith
-      in: query
-      schema:
-        type: string
-    limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 20
-        maximum: 100
-    modifiedSince:
-      name: modifiedSince
-      in: query
-      schema:
-        type: string
-        format: date-time
   securitySchemes:
     apiKeyAuth:
       type: apiKey

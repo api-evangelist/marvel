@@ -102,12 +102,11 @@ components:
         count:
           type: integer
   parameters:
-    comicId:
-      name: comicId
-      in: path
-      required: true
+    titleStartsWith:
+      name: titleStartsWith
+      in: query
       schema:
-        type: integer
+        type: string
     characterId:
       name: characterId
       in: path
@@ -125,11 +124,12 @@ components:
       schema:
         type: integer
         default: 0
-    titleStartsWith:
-      name: titleStartsWith
-      in: query
+    comicId:
+      name: comicId
+      in: path
+      required: true
       schema:
-        type: string
+        type: integer
     limit:
       name: limit
       in: query

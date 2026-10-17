@@ -76,16 +76,12 @@ paths:
                 $ref: '#/components/schemas/ComicDataWrapper'
 components:
   schemas:
-    CharacterDataWrapper:
+    ComicDataWrapper:
       type: object
       properties:
         code:
           type: integer
         status:
-          type: string
-        copyright:
-          type: string
-        attributionText:
           type: string
         data:
           allOf:
@@ -96,12 +92,16 @@ components:
                 type: array
                 items:
                   type: object
-    ComicDataWrapper:
+    CharacterDataWrapper:
       type: object
       properties:
         code:
           type: integer
         status:
+          type: string
+        copyright:
+          type: string
+        attributionText:
           type: string
         data:
           allOf:
