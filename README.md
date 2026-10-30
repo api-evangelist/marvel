@@ -1,4 +1,4 @@
-# Marvel (marvel)
+# Marvel
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,67 +66,126 @@
 
 The Marvel Comics API is a tool for developers to access data from over 70 years of Marvel comics, including characters, series, events, creators, and stories. The API requires authentication via an API key and is available through the Marvel Developer Portal.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/marvel/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/marvel/refs/heads/main/apis.yml)
+**Areas:** Characters · Comics · Entertainment · Event · Media · Series · Stories
 
-## Scope
+## Marvel on APIs.io
 
-- **Type:** Index
+Everything profiled for Marvel is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/marvel/](https://apis.io/providers/marvel/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Characters
-- Comics
-- Creators
-- Entertainment
-- Events
-- Media
-- Series
-- Stories
+- [Marvel Characters API](https://apis.io/apis/marvel/marvel-characters-api/) — Marvel character resources.
+- [Marvel Comics API](https://apis.io/apis/marvel/marvel-comics-api/) — Marvel comic resources.
+- [Marvel Creators API](https://apis.io/apis/marvel/marvel-creators-api/) — Marvel creator resources.
+- [Marvel Events API](https://apis.io/apis/marvel/marvel-events-api/) — Marvel event (crossover storyline) resources.
+- [Marvel Series API](https://apis.io/apis/marvel/marvel-series-api/) — Marvel series resources.
+- [Marvel Stories API](https://apis.io/apis/marvel/marvel-stories-api/) — Marvel story resources.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Marvel Comics API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Marvel Comics API allows developers to access data from Marvel's vast library of comics, characters, creators, events, and series spanning over 70 years of Marvel history. All requests require API key authentication via a public key, timestamp, and MD5 hash.
+- [Marvel Agentic Access](https://apis.io/agentic-access/marvel/marvel-agentic-access/)
 
-- **Human URL:** [https://developer.marvel.com/](https://developer.marvel.com/)
-- **Base URL:** `https://gateway.marvel.com/v1/public`
+#### Collections (7)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Characters
-- Comics
-- Creators
-- Entertainment
-- Events
-- Series
-- Stories
+- [Marvel Comics API](https://apis.io/collections/marvel/open-marvel/)
+- [Marvel Comics Characters API](https://apis.io/collections/marvel/open-marvel-characters-api/)
+- [Marvel Characters Comics API](https://apis.io/collections/marvel/open-marvel-comics-api/)
+- [Marvel Comics Characters Creators API](https://apis.io/collections/marvel/open-marvel-creators-api/)
+- [Marvel Comics Characters Events API](https://apis.io/collections/marvel/open-marvel-events-api/)
+- [Marvel Comics Characters Series API](https://apis.io/collections/marvel/open-marvel-series-api/)
+- [Marvel Comics Characters Stories API](https://apis.io/collections/marvel/open-marvel-stories-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://developer.marvel.com/docs)
-- [Getting Started](https://developer.marvel.com/documentation/getting_started)
-- [Reference](https://developer.marvel.com/documentation/apiresults)
-- [Authentication](https://developer.marvel.com/documentation/authorization)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/marvel/refs/heads/main/openapi/marvel-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/marvel.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/marvel.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Marvel Authentication](https://apis.io/security/marvel/marvel-authentication/)
+- [Marvel Domain Security](https://apis.io/security/marvel/marvel-domain-security/)
 
-- [LinkedIn](https://www.linkedin.com/company/marvel-entertainment)
-- [Portal](https://developer.marvel.com/)
-- [Sign Up](https://developer.marvel.com/account)
-- [Terms of Service](https://developer.marvel.com/terms)
-- [Documentation](https://developer.marvel.com/docs)
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Marvel Plans Pricing](https://apis.io/plans/marvel/marvel-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Marvel Rate Limits](https://apis.io/rate-limits/marvel/marvel-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Marvel Finops](https://apis.io/finops/marvel/marvel-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.marvel.com/)
+- [Documentation](https://developer.marvel.com/docs)
+- [Blog](https://www.marvel.com/articles)
+- [Terms of service](https://developer.marvel.com/terms)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 36.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 42.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 52.4 |
+| Access clarity | 31.6 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/marvel/](https://apis.io/providers/marvel/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Marvel: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/marvel/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
